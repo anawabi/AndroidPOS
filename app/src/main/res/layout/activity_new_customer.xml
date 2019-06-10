@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/nav_header_vertical_spacing"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_cust_name"
+            android:inputType="text"
+            android:singleLine="true"
+            android:hint="Customer First Name"
+            android:layout_marginTop="20dp"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_cust_lastname"
+            android:inputType="text"
+            android:singleLine="true"
+            android:layout_marginTop="20dp"
+            android:hint="Customer Last Name"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_cust_phone"
+            android:inputType="phone"
+            android:singleLine="true"
+            android:hint="Customer Phone"
+            android:layout_marginTop="20dp"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_cust_email"
+            android:inputType="textAutoComplete"
+            android:layout_marginTop="20dp"
+            android:singleLine="true"
+            android:hint="Customer Email"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_cust_state"
+            android:inputType="textAutoComplete"
+            android:singleLine="true"
+            android:layout_marginTop="20dp"
+            android:hint="Customer State/Province"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_cust_address"
+            android:inputType="textAutoComplete"
+            android:singleLine="true"
+            android:hint="Customer Address"
+            android:layout_marginTop="20dp"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_register_customer"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffff"
+            android:text="Register"/>
+    </LinearLayout>
+</ScrollView>

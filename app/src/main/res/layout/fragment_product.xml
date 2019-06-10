@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/nav_header_vertical_spacing"
+    tools:context=".ProductFragment">
+<SearchView
+    android:id="@+id/search_category"
+    android:layout_width="1000dp"
+    android:layout_alignStart="@+id/rcv_inventory"
+    android:layout_height="wrap_content" />
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rcv_inventory"
+      android:layout_below="@+id/search_category"
+      android:layout_width="match_parent"
+      android:padding="5dp"
+      android:layout_height="wrap_content" />
+
+</RelativeLayout>

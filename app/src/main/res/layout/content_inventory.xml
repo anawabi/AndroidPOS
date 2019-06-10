@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_marginTop="60dp"
+    android:layout_weight="5"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--For two fragments-->
+    <LinearLayout
+        android:id="@+id/layout_for_frgs"
+        android:layout_width="match_parent"
+        android:weightSum="3"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <fragment
+            android:id="@+id/frg_invoice"
+            android:name="com.example.amannawabi.pos.InvoiceFragment"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_invoice" />
+        <fragment
+            android:id="@+id/frg_product"
+            android:name="com.example.amannawabi.pos.ProductFragment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_product" />
+    </LinearLayout>
+
+    <!-- buttons like print cancel & editTexts for paid amount or due-amount -->
+    <LinearLayout
+        android:id="@+id/layout_for_payment"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/layout_for_frgs">
+        <!--Select payment-type-->
+        <Spinner
+            android:id="@+id/spn_payment_type"
+            android:layout_width="100dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"/>
+        <!-- checked if all amount paid-->
+        <CheckBox
+            android:id="@+id/chk_paid_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paid All?" />
+            <EditText
+                android:id="@+id/edit_trans_code"
+                android:layout_width="100dp"
+                android:singleLine="true"
+                android:hint="Trans Code"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+            <EditText
+                android:id="@+id/edit_rcvable_amount"
+                android:layout_width="100dp"
+                android:singleLine="true"
+                android:hint="Recievable"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+            <EditText
+                android:id="@+id/edit_rcv_amount"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="Recieved"
+                android:inputType="numberDecimal"/>
+    </LinearLayout>
+    <ImageButton
+        android:id="@+id/btn_print"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_for_payment"
+        android:src="@drawable/ic_print"/>
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/btn_print"
+        android:text="Cancel"
+        android:layout_alignBottom="@+id/btn_print"/>
+</RelativeLayout>
