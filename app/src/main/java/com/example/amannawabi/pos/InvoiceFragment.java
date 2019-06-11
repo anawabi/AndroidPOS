@@ -6,10 +6,13 @@ import android.app.AlertDialog;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -291,151 +294,155 @@ public class InvoiceFragment extends Fragment {
     //    To send bill-contents to server
     @SuppressLint("SetTextI18n")
     private void onCreateSale() {
-       final String transCode = editTransCode.getText().toString();
-       final double recievable = Double.parseDouble(editRecievable.getText().toString());
-       double rvd = 0;
-       double rvable = 0;
-       if (chkAllAmount.isChecked()) {
-           final double paidAllValue = recievable;
-           StringRequest saleRequest = new StringRequest(Request.Method.POST, MyUrl.setUrl("createSale"), new Response.Listener<String>() {
-               @Override
-               public void onResponse(String response) {
+        final String transCode = editTransCode.getText().toString();
+        final double recievable = Double.parseDouble(editRecievable.getText().toString());
+        double rvd = 0;
+        double rvable = 0;
+        if (chkAllAmount.isChecked()) {
+            final double paidAllValue = recievable;
+            StringRequest saleRequest = new StringRequest(Request.Method.POST, MyUrl.setUrl("createSale"), new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
 
-                   if (response.trim().contains("success!")) {
-                       Toast.makeText(getContext(), "Sale was successful!", Toast.LENGTH_LONG).show();
-                       //                    The contents of invoice should be deleted
-                       InvoiceFragment.posDatabase.myDao().delete();
-                       //                    To refresh the fragment
-                       onRefresh();
-                   } else if (response.trim().contains("fail")) {
-                       Toast.makeText(getContext(), "Sorry, sale not done, please try again!", Toast.LENGTH_SHORT).show();
-                   }
-               }
-           }, new Response.ErrorListener() {
-               @Override
-               public void onErrorResponse(VolleyError error) {
-                   AlertDialog.Builder d = new AlertDialog.Builder(getContext());
-                   d.setMessage(error.toString());
-                   d.show();
-               }
-           }) {
+                    if (response.trim().contains("success!")) {
+                        Toast.makeText(getContext(), "Sale was successful!", Toast.LENGTH_LONG).show();
+                        //                    The contents of invoice should be deleted
+                        InvoiceFragment.posDatabase.myDao().delete();
+//                      print the invoice
+                        onPrint();
+                        //To refresh the fragment
+                        onRefresh();
+                    } else if (response.trim().contains("fail")) {
+                        Toast.makeText(getContext(), "Sorry, sale not done, please try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    AlertDialog.Builder d = new AlertDialog.Builder(getContext());
+                    d.setMessage(error.toString());
+                    d.show();
+                }
+            }) {
 
-               @Override
-               protected Map<String, String> getParams() throws AuthFailureError {
-                   List<Product> dataList = InvoiceFragment.posDatabase.myDao().getProducts(MyCompany.getCompanyId());
-                   JSONArray jsonArray = new JSONArray();
-                   JSONObject jsonObject;
-                   double total = 0;
-                   for (int i = 0; i < dataList.size(); i++) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    List<Product> dataList = InvoiceFragment.posDatabase.myDao().getProducts(MyCompany.getCompanyId());
+                    JSONArray jsonArray = new JSONArray();
+                    JSONObject jsonObject;
+                    double total = 0;
+                    for (int i = 0; i < dataList.size(); i++) {
 
-                       jsonObject = new JSONObject();
-                       try {
-                           jsonObject.put("id", dataList.get(i).getProductId());
-                           jsonObject.put("compId", MyCompany.getCompanyId());
-                           jsonObject.put("custId", CustomerIDForInvoice.getCustomerID());
-                           int qty = dataList.get(i).getProductQty();
-                           double price = dataList.get(i).getProductPrice();
-                           double subtotal = qty * price;
-                           jsonObject.put("qty", qty);
-                           jsonObject.put("price", price);
-                           jsonObject.put("subtotal", subtotal);
-                           //                        total
-                           total = total + subtotal;
-                       } catch (JSONException e) {
-                           e.printStackTrace();
-                       }
-                       jsonArray.put(jsonObject);
-                   }
+                        jsonObject = new JSONObject();
+                        try {
+                            jsonObject.put("id", dataList.get(i).getProductId());
+                            jsonObject.put("compId", MyCompany.getCompanyId());
+                            jsonObject.put("custId", CustomerIDForInvoice.getCustomerID());
+                            int qty = dataList.get(i).getProductQty();
+                            double price = dataList.get(i).getProductPrice();
+                            double subtotal = qty * price;
+                            jsonObject.put("qty", qty);
+                            jsonObject.put("price", price);
+                            jsonObject.put("subtotal", subtotal);
+                            //                        total
+                            total = total + subtotal;
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        jsonArray.put(jsonObject);
+                    }
 
-                   Map<String, String> map = new HashMap<>();
-                   map.put("params", jsonArray.toString());
-                   map.put("transCode", transCode);
+                    Map<String, String> map = new HashMap<>();
+                    map.put("params", jsonArray.toString());
+                    map.put("transCode", transCode);
 //                   map.put("recievable", String.valueOf(finalRvable));
-                   map.put("recieved", String.valueOf(paidAllValue));
-                   map.put("payType", String.valueOf(paymentValue));
-                   return map;
-               }
-           };
-           Volley.newRequestQueue(getContext()).add(saleRequest);
-       } else if (!chkAllAmount.isChecked()) {
-           if (editRecieved.getText().toString().isEmpty()) {
-               editRecieved.setError("Sorry, recieved amount cannot be blank.");
-           } else {
-               final double recieved = Double.parseDouble(editRecieved.getText().toString());
-               if (recieved < recievable) {
-                   double remainingAmount = recievable - recieved;
-                   rvd = recieved;
-                   rvable = remainingAmount;
-                   editRecievable.setText(remainingAmount + "");
+                    map.put("recieved", String.valueOf(paidAllValue));
+                    map.put("payType", String.valueOf(paymentValue));
+                    return map;
+                }
+            };
+            Volley.newRequestQueue(getContext()).add(saleRequest);
+        } else if (!chkAllAmount.isChecked()) {
+            if (editRecieved.getText().toString().isEmpty()) {
+                editRecieved.setError("Sorry, recieved amount cannot be blank.");
+            } else {
+                final double recieved = Double.parseDouble(editRecieved.getText().toString());
+                if (recieved < recievable) {
+                    double remainingAmount = recievable - recieved;
+                    rvd = recieved;
+                    rvable = remainingAmount;
+                    editRecievable.setText(remainingAmount + "");
 //                   Toast.makeText(getContext(), "Recieved: " + rvd + " Payment: " + paymentValue, Toast.LENGTH_SHORT).show();
-                   final double finalRvd = rvd;
-                   final double finalRvable = rvable;
-                   StringRequest saleRequest = new StringRequest(Request.Method.POST, MyUrl.setUrl("createSale"), new Response.Listener<String>() {
-                       @Override
-                       public void onResponse(String response) {
+                    final double finalRvd = rvd;
+                    final double finalRvable = rvable;
+                    StringRequest saleRequest = new StringRequest(Request.Method.POST, MyUrl.setUrl("createSale"), new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
 
-                           if (response.trim().contains("success!")) {
-                               Toast.makeText(getContext(), "Sale was successful!", Toast.LENGTH_LONG).show();
-                               //                    The contents of invoice should be deleted
-                               InvoiceFragment.posDatabase.myDao().delete();
-                               //                    To refresh the fragment
-                               onRefresh();
-                           } else if (response.trim().contains("fail")) {
-                               Toast.makeText(getContext(), "Sorry, sale not done, please try again!", Toast.LENGTH_SHORT).show();
-                           }
-                       }
-                   }, new Response.ErrorListener() {
-                       @Override
-                       public void onErrorResponse(VolleyError error) {
-                           AlertDialog.Builder d = new AlertDialog.Builder(getContext());
-                           d.setMessage(error.toString());
-                           d.show();
-                       }
-                   }) {
+                            if (response.trim().contains("success!")) {
+                                Toast.makeText(getContext(), "Sale was successful!", Toast.LENGTH_LONG).show();
+                                //                    The contents of invoice should be deleted
+                                InvoiceFragment.posDatabase.myDao().delete();
+//                                print the invoice
+                             onPrint();
+                                //To refresh the fragment
+                                onRefresh();
+                            } else if (response.trim().contains("fail")) {
+                                Toast.makeText(getContext(), "Sorry, sale not done, please try again!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            AlertDialog.Builder d = new AlertDialog.Builder(getContext());
+                            d.setMessage(error.toString());
+                            d.show();
+                        }
+                    }) {
 
-                       @Override
-                       protected Map<String, String> getParams() throws AuthFailureError {
-                           List<Product> dataList = InvoiceFragment.posDatabase.myDao().getProducts(MyCompany.getCompanyId());
-                           JSONArray jsonArray = new JSONArray();
-                           JSONObject jsonObject;
-                           double total = 0;
-                           for (int i = 0; i < dataList.size(); i++) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            List<Product> dataList = InvoiceFragment.posDatabase.myDao().getProducts(MyCompany.getCompanyId());
+                            JSONArray jsonArray = new JSONArray();
+                            JSONObject jsonObject;
+                            double total = 0;
+                            for (int i = 0; i < dataList.size(); i++) {
 
-                               jsonObject = new JSONObject();
-                               try {
-                                   jsonObject.put("id", dataList.get(i).getProductId());
-                                   jsonObject.put("compId", MyCompany.getCompanyId());
-                                   jsonObject.put("custId", CustomerIDForInvoice.getCustomerID());
-                                   int qty = dataList.get(i).getProductQty();
-                                   double price = dataList.get(i).getProductPrice();
-                                   double subtotal = qty * price;
-                                   jsonObject.put("qty", qty);
-                                   jsonObject.put("price", price);
-                                   jsonObject.put("subtotal", subtotal);
-                                   //                        total
-                                   total = total + subtotal;
-                               } catch (JSONException e) {
-                                   e.printStackTrace();
-                               }
-                               jsonArray.put(jsonObject);
-                           }
+                                jsonObject = new JSONObject();
+                                try {
+                                    jsonObject.put("id", dataList.get(i).getProductId());
+                                    jsonObject.put("compId", MyCompany.getCompanyId());
+                                    jsonObject.put("custId", CustomerIDForInvoice.getCustomerID());
+                                    int qty = dataList.get(i).getProductQty();
+                                    double price = dataList.get(i).getProductPrice();
+                                    double subtotal = qty * price;
+                                    jsonObject.put("qty", qty);
+                                    jsonObject.put("price", price);
+                                    jsonObject.put("subtotal", subtotal);
+                                    //                        total
+                                    total = total + subtotal;
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                jsonArray.put(jsonObject);
+                            }
 
-                           Map<String, String> map = new HashMap<>();
-                           map.put("params", jsonArray.toString());
-                           map.put("transCode", transCode);
-                           map.put("recievable", String.valueOf(finalRvable));
-                           map.put("recieved", String.valueOf(finalRvd));
-                           map.put("payType", String.valueOf(paymentValue));
-                           return map;
-                       }
-                   };
-                   Volley.newRequestQueue(getContext()).add(saleRequest);
-                   editRecieved.getText().clear();
-               } else {
-                   editRecieved.setError("Sorry, recieved amount can only be between 0 and " + recievable);
-               }
-           }
-       }
+                            Map<String, String> map = new HashMap<>();
+                            map.put("params", jsonArray.toString());
+                            map.put("transCode", transCode);
+                            map.put("recievable", String.valueOf(finalRvable));
+                            map.put("recieved", String.valueOf(finalRvd));
+                            map.put("payType", String.valueOf(paymentValue));
+                            return map;
+                        }
+                    };
+                    Volley.newRequestQueue(getContext()).add(saleRequest);
+                    editRecieved.getText().clear();
+                } else {
+                    editRecieved.setError("Sorry, recieved amount can only be between 0 and " + recievable);
+                }
+            }
+        }
     }
 
     //    To refresh the fragment
@@ -448,5 +455,14 @@ public class InvoiceFragment extends Fragment {
         // work here to add, remove, etc
         fragmentTransaction.replace(R.id.frg_invoice, myfragment);
         fragmentTransaction.commit();
+    }
+
+//    Print invoice which is here the listview
+    private void onPrint() {
+        PrintManager printManager = (PrintManager) getContext().getSystemService(getContext().PRINT_SERVICE);
+        WebView webView = new WebView(getContext());
+        PrintDocumentAdapter adapter = webView.createPrintDocumentAdapter();
+        assert printManager != null;
+        printManager.print(String.valueOf(R.id.list_invoice_content), adapter, null);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.amannawabi.pos;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,20 +9,37 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class Inventory2Adapter extends RecyclerView.Adapter<Inventory2Adapter.ViewHolder> {
     private Context context;
     private List<Inventory2DataModal> pList;
-    @Override
-    public Inventory2Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.inventory_data_modal, parent, false);
-        return new ViewHolder(view);
+
+    public Inventory2Adapter(Context context, List<Inventory2DataModal> pList) {
+        this.context = context;
+        this.pList = pList;
     }
 
     @Override
+    public Inventory2Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.inventory_data_modal, parent, false);
+
+        return new ViewHolder(view);
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
     public void onBindViewHolder(Inventory2Adapter.ViewHolder holder, int position) {
-        Inventory2DataModal modal = pList.get(position);
+       final Inventory2DataModal modal = pList.get(position);
+        Glide.with(context).load(MyUrl.onLoadImage("product_images/".concat(modal.getpImage()))).into(holder.pImage);
+        holder.pName.setText(modal.getpName());
+        holder.pQty.setText(modal.getpQty()+"");
+        holder.pPurchasePrice.setText(modal.getpPurchasePrice()+"");
+        holder.pSellPrice.setText(modal.getpSellPrice()+"");
+        holder.pRegDate.setText(modal.getpRegDate());
+
 
     }
 
