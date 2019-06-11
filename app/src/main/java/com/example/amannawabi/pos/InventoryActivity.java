@@ -41,6 +41,7 @@ import java.util.Map;
 
 public class InventoryActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private Intent testIntent;
     Context context = InventoryActivity.this;
     private DrawerLayout drawer;
     @Override
@@ -106,17 +107,22 @@ public class InventoryActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_customer) {
+            testIntent = new Intent(this, DrawerMenuActivity.class);
+            MenuID.setMenuId(1);
+            startActivity(testIntent);
+        } else if (id == R.id.nav_inventory) {
+            testIntent = new Intent(this, DrawerMenuActivity.class);
+            MenuID.setMenuId(2);
+            startActivity(testIntent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_category) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_sale) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_report) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_setting) {
 
         } else if ( id == R.id.nav_log_out) {
             AlertDialog.Builder logoutDialog = new AlertDialog.Builder(context);

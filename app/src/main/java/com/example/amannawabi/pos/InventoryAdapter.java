@@ -24,7 +24,6 @@ import java.util.zip.Inflater;
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.ViewHolder> {
     private List<InventoryDataModal> productList;
     private Context context;
-    private Fragment invoiceFragment;
 
     public InventoryAdapter(List<InventoryDataModal> dataModals, Context context) {
         this.productList = dataModals;

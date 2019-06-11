@@ -13,10 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".LoginActivity"
-            android:parentActivityName=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:configChanges="keyboardHidden|orientation"
+            android:parentActivityName=".LoginActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,15 +37,18 @@
         </activity>
         <activity
             android:name=".NewCustomerActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_new_customer"
             android:parentActivityName=".InventoryActivity"
-            android:configChanges="orientation"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.amannawabi.pos.InventoryActivity" />
         </activity>
+        <activity android:name=".DrawerMenuActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
