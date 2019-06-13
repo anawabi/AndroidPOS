@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.amannawabi.pos">
+    package="com.xamuor.cashco.pos">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,7 +16,6 @@
         <activity
             android:name=".LoginActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:parentActivityName=".LoginActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +32,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.amannawabi.pos.LoginActivity" />
+                android:value="com.xamuor.cashco.pos.LoginActivity" />
         </activity>
         <activity
             android:name=".NewCustomerActivity"
@@ -44,10 +43,11 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.amannawabi.pos.InventoryActivity" />
+                android:value="com.xamuor.cashco.pos.InventoryActivity" />
         </activity>
         <activity android:name=".DrawerMenuActivity"
             android:configChanges="orientation"
+            android:parentActivityName=".InventoryActivity"
             android:screenOrientation="landscape"/>
     </application>
 

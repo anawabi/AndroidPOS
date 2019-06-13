@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/cust_detail_image"
+        android:layout_width="80dp"
+        android:src="@drawable/user"
+        android:layout_centerHorizontal="true"
+        android:layout_height="80dp" />
+    <TextView
+        android:id="@+id/txt_cust_detail_fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cust_detail_image"
+        android:text="fname lname"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:id="@+id/inner_layout_in_customer_detail"
+        android:orientation="horizontal"
+        android:layout_below="@+id/txt_cust_detail_fname"
+        android:layout_width="match_parent"
+        android:weightSum="3"
+        android:padding="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_detail_add_customer"
+            android:layout_width="30dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_customer_add" />
+        <ImageView
+            android:id="@+id/img_detail_balance"
+            android:layout_width="30dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_account_balance" />
+        <ImageView
+            android:id="@+id/img_cust_detail_edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_edit"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_cust_detail_address"
+        android:layout_marginTop="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_address"
+        android:layout_below="@+id/inner_layout_in_customer_detail"/>
+    <TextView
+        android:id="@+id/txt_cust_detail_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/img_cust_detail_address"
+        android:layout_alignTop="@+id/img_cust_detail_address"
+        android:layout_marginStart="10dp"
+        android:text="From"/>
+    <ImageView
+        android:id="@+id/img_cust_detail_phone"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_phone"
+        android:layout_below="@+id/img_cust_detail_address"/>
+    <TextView
+        android:id="@+id/txt_cust_detail_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/img_cust_detail_phone"
+        android:layout_alignTop="@+id/img_cust_detail_phone"
+        android:layout_marginStart="10dp"
+        android:text="Phone"/>
+    <ImageView
+        android:id="@+id/img_cust_detail_email"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_email"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/img_cust_detail_phone"/>
+    <TextView
+        android:id="@+id/txt_cust_detail_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/img_cust_detail_email"
+        android:layout_alignTop="@+id/img_cust_detail_email"
+        android:layout_marginStart="10dp"
+        android:text="Email"/>
+
+</RelativeLayout>
