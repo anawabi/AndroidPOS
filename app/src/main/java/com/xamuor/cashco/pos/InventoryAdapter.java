@@ -124,9 +124,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
     private void onRefresh() {
         android.support.v4.app.FragmentManager fragmentManager = ((InventoryActivity) context).getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         InvoiceFragment myfragment = new InvoiceFragment();  //your fragment
-
         // work here to add, remove, etc
         fragmentTransaction.replace(R.id.frg_invoice, myfragment);
         fragmentTransaction.commit();

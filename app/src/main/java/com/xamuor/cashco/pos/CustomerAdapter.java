@@ -57,8 +57,10 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
         holder.cardCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle custValues = new Bundle();
+                CustomerEditFragment.onRefreshCustomerDetailFragment(modal, context);
+              /*  Bundle custValues = new Bundle();
 //                Send customer firstname & lastname through Bundle to CustomerDetailFragment
+                custValues.putInt("c_id", modal.getCustId());
                 custValues.putString("c_name", modal.getCustFname());
                 custValues.putString("c_lname", modal.getCustLname());
                 custValues.putString("c_phone", modal.getCustPhone());
@@ -72,7 +74,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
                 CustomerDetailFragment myfragment = new CustomerDetailFragment();  //your fragment
                 myfragment.setArguments(custValues);
                 fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.commit();*/
             }
         });
         holder.switchCustStatus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
