@@ -58,23 +58,6 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 CustomerEditFragment.onRefreshCustomerDetailFragment(modal, context);
-              /*  Bundle custValues = new Bundle();
-//                Send customer firstname & lastname through Bundle to CustomerDetailFragment
-                custValues.putInt("c_id", modal.getCustId());
-                custValues.putString("c_name", modal.getCustFname());
-                custValues.putString("c_lname", modal.getCustLname());
-                custValues.putString("c_phone", modal.getCustPhone());
-                custValues.putString("c_email", modal.getCustEmail());
-                custValues.putString("c_state", modal.getCust_state());
-                custValues.putString("c_address", modal.getCust_addr());
-
-//                CustomerDetailFragment to show more detail for any customer
-                FragmentManager fragmentManager =  ((AppCompatActivity) context).getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                CustomerDetailFragment myfragment = new CustomerDetailFragment();  //your fragment
-                myfragment.setArguments(custValues);
-                fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
-                fragmentTransaction.commit();*/
             }
         });
         holder.switchCustStatus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

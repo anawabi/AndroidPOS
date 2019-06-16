@@ -100,7 +100,5 @@ public class CustomerFragment extends Fragment {
         };
         Volley.newRequestQueue(getContext()).add(request);
     }
-    private void checkCustomerStatus() {
 
-    }
 }

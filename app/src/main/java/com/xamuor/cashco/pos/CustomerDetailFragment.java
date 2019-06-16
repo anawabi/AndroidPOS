@@ -59,6 +59,23 @@ public class CustomerDetailFragment extends Fragment {
         txtCustPhone.setText(custPhone.toString());
         txtCustEmail.setText(custEmail.toString());
 
+        imgCustBalance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle balanceBundle = new Bundle();
+                balanceBundle.putInt("custId", custId);
+
+                android.support.v4.app.FragmentManager fragmentManager = (getActivity()).getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                CustomerBalanceFragment myfragment = new CustomerBalanceFragment();  //your fragment
+                myfragment.setArguments(balanceBundle);
+                // work here to add, remove, etc
+                fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
+                fragmentTransaction.commit();
+
+            }
+        });
+
         //        To edit customers
         imgEditCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,9 +95,6 @@ public class CustomerDetailFragment extends Fragment {
                 // work here to add, remove, etc
                 fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
                 fragmentTransaction.commit();
-
-
-
             }
         });
         return view;
