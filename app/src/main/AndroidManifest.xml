@@ -45,10 +45,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.xamuor.cashco.pos.InventoryActivity" />
         </activity>
-        <activity android:name=".DrawerMenuActivity"
+        <activity
+            android:name=".DrawerMenuActivity"
             android:configChanges="orientation"
             android:parentActivityName=".InventoryActivity"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

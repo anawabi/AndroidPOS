@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -49,6 +51,20 @@ public class CustomerBalanceFragment extends Fragment {
         Bundle bundle = getArguments();
         int custId = bundle.getInt("custId");
         loadCustBalance(custId);
+
+//        swipe-delete any balance
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                BalanceDataModal modal = balanceList.get(viewHolder.getAdapterPosition());
+                Toast.makeText(getContext(), "Item deleted.", Toast.LENGTH_SHORT).show();
+            }
+        }).attachToRecyclerView(custBalanceRV);
         return view;
     }
 

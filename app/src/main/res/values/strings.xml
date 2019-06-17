@@ -31,4 +31,5 @@
     <string name="txt_recieved">Recieved</string>
     <string name="txt_recievable">Recievable</string>
     <string name="txt_balance_date">Date</string>
+    <string name="title_activity_text_drawer">TextDrawerActivity</string>
 </resources>

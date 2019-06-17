@@ -53,4 +53,11 @@ public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.ViewHole
             txtBalanceDate = itemView.findViewById(R.id.txt_balance_date);
         }
     }
+
+//    Remove balance
+    public void removeBalance(int position) {
+         balanceList.get(position);
+        balanceList.remove(position);
+        notifyItemRemoved(position);
+    }
 }

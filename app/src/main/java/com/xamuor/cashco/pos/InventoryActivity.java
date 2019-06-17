@@ -117,6 +117,9 @@ public class InventoryActivity extends AppCompatActivity
             startActivity(testIntent);
 
         } else if (id == R.id.nav_category) {
+            testIntent = new Intent(this, DrawerMenuActivity.class);
+            MenuID.setMenuId(3);
+            startActivity(testIntent);
 
         } else if (id == R.id.nav_sale) {
 
