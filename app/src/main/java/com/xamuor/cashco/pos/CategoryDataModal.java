@@ -1,12 +1,18 @@
 package com.xamuor.cashco.pos;
 
 public class CategoryDataModal {
+    private int ctgId;
     private String ctgName;
     private String ctgDesc;
 
-    public CategoryDataModal(String ctgName, String ctgDesc) {
+    public CategoryDataModal(int ctgId, String ctgName, String ctgDesc) {
+        this.ctgId = ctgId;
         this.ctgName = ctgName;
         this.ctgDesc = ctgDesc;
+    }
+
+    public int getCtgId() {
+        return ctgId;
     }
 
     public String getCtgName() {

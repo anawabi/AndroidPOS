@@ -55,9 +55,10 @@ public class CategoriesFragment extends Fragment {
                     JSONArray jsonArray = new JSONArray(response);
                     for (int c = 0; c < jsonArray.length(); c++) {
                         JSONObject jo = jsonArray.getJSONObject(c);
+                        int ctgId = jo.getInt("ctg_id");
                         String ctgName = jo.getString("ctg_name");
                         String ctgDesc = jo.getString("ctg_desc");
-                        CategoryDataModal modal = new CategoryDataModal(ctgName, ctgDesc);
+                        CategoryDataModal modal = new CategoryDataModal(ctgId, ctgName, ctgDesc);
                         ctgList.add(modal);
                     }
                     adapter = new CategoryAdapter(getContext(), ctgList);

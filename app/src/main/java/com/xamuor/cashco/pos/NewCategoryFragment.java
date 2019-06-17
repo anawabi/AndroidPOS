@@ -61,7 +61,7 @@ public class NewCategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
 //                data-modal is required to refresh CategoryRelatedFragment
-                CategoryDataModal modal = new CategoryDataModal(editCategoryName.getText().toString(), editCategoryDesc.getText().toString());
+                CategoryDataModal modal = new CategoryDataModal(0, editCategoryName.getText().toString(), editCategoryDesc.getText().toString());
                 CategoryRelatedFragment.onRefreshCategoryRelated(modal, getContext());
             }
         });

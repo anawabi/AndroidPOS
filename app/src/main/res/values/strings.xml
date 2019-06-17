@@ -36,4 +36,16 @@
     <string name="edit_ctg_name">Category Name</string>
     <string name="edit_ctg_desc">Description (optional)</string>
     <string name="txt_ctg_title">Add New Category</string>
+    <string name="img_product_image">Choose Product Image</string>
+    <string name="rdb_taxable">Yes</string>
+    <string name="rdb_not_taxable">No</string>
+    <string name="edit_product_purchase">Purchase Price</string>
+    <string name="edit_product_name">Product Name</string>
+    <string name="edit_product_desc">Description</string>
+    <string name="edit_sell_price">Sell Price</string>
+    <string name="edit_product_qty">Product Quantity</string>
+    <string name="edit_product_barcode">Barcode Number</string>
+    <string name="txt_product_title">Add New Product</string>
+    <string name="txt_taxable">Taxable?</string>
+    <string name="txt_ctg_for_product">Category</string>
 </resources>

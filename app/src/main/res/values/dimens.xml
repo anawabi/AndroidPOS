@@ -10,5 +10,7 @@
     <dimen name="card_padding">16dp</dimen>
     <dimen name="margin">10dp</dimen>
     <dimen name="txt_small_size">14dp</dimen>
+    <dimen name="small_margin">10dp</dimen>
+
 
 </resources>

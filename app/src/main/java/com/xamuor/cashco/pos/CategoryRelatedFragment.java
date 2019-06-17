@@ -12,12 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CategoryRelatedFragment extends Fragment {
     private ImageView imgNewCategory, imgNewProduct, imgEditCategory;
+//    category-id to be inserted into table items into SERVER
+    public static int ctgId = 0;
+    public static String ctgName;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,16 +31,26 @@ public class CategoryRelatedFragment extends Fragment {
         imgNewCategory = view.findViewById(R.id.img_add_category);
         imgNewProduct = view.findViewById(R.id.img_add_product);
         imgEditCategory = view.findViewById(R.id.img_edit_category);
+//        Add new category
         imgNewCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onNewCategory();
             }
         });
+
+//        Add new product
+        imgNewProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onNewProduct();
+            }
+        });
         return view;
     }
     public static void onRefreshCategoryRelated(@Nullable CategoryDataModal modal, @Nullable Context context) {
-
+        ctgId = modal.getCtgId();
+        ctgName = modal.getCtgName();
 //                CustomerDetailFragment to show more detail for any customer
         FragmentManager fragmentManager =  ((AppCompatActivity) context).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -49,6 +63,14 @@ public class CategoryRelatedFragment extends Fragment {
         FragmentManager fragmentManager =  (getActivity()).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         NewCategoryFragment myfragment = new NewCategoryFragment();  //your fragment
+        fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
+        fragmentTransaction.commit();
+    }
+//    Add new product
+    private void onNewProduct() {
+        FragmentManager fragmentManager =  (getActivity()).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        NewProductFragment myfragment = new NewProductFragment();  //your fragment
         fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
         fragmentTransaction.commit();
     }

@@ -1,6 +1,7 @@
 package com.xamuor.cashco.pos;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,12 +30,14 @@ public class CategoryAdapter extends RecyclerView.Adapter <CategoryAdapter.ViewH
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final CategoryDataModal modal = ctgList.get(position);
-        holder.txtCtgName.setText(modal.getCtgName().toString());
-        holder.txtCtgDesc.setText(modal.getCtgDesc().toString());
+        holder.txtCtgName.setText(modal.getCtgName());
+        holder.txtCtgDesc.setText(modal.getCtgDesc());
 //        card is clickable
         holder.cardCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("ctgId", modal.getCtgId());
                 CategoryRelatedFragment.onRefreshCategoryRelated(modal, context);
             }
         });
