@@ -1,11 +1,13 @@
 package com.xamuor.cashco.pos;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,10 +28,17 @@ public class CategoryAdapter extends RecyclerView.Adapter <CategoryAdapter.ViewH
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        CategoryDataModal modal = ctgList.get(position);
+        final CategoryDataModal modal = ctgList.get(position);
         holder.txtCtgName.setText(modal.getCtgName().toString());
         holder.txtCtgDesc.setText(modal.getCtgDesc().toString());
-        holder.txtCtgDate.setText(modal.getCtgRegDate().toString());
+//        card is clickable
+        holder.cardCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CategoryRelatedFragment.onRefreshCategoryRelated(modal, context);
+            }
+        });
+
     }
 
     @Override
@@ -40,12 +49,12 @@ public class CategoryAdapter extends RecyclerView.Adapter <CategoryAdapter.ViewH
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txtCtgName;
         private TextView txtCtgDesc;
-        private TextView txtCtgDate;
+        private CardView cardCategory;
         public ViewHolder(View itemView) {
             super(itemView);
             txtCtgName = itemView.findViewById(R.id.txt_ctg_name);
             txtCtgDesc = itemView.findViewById(R.id.txt_ctg_desc);
-            txtCtgDate = itemView.findViewById(R.id.txt_ctg_date);
+            cardCategory = itemView.findViewById(R.id.card_category);
         }
     }
 }

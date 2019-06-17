@@ -57,8 +57,7 @@ public class CategoriesFragment extends Fragment {
                         JSONObject jo = jsonArray.getJSONObject(c);
                         String ctgName = jo.getString("ctg_name");
                         String ctgDesc = jo.getString("ctg_desc");
-                        String ctgDate = jo.getString("created_at");
-                        CategoryDataModal modal = new CategoryDataModal(ctgName, ctgDesc, ctgDate);
+                        CategoryDataModal modal = new CategoryDataModal(ctgName, ctgDesc);
                         ctgList.add(modal);
                     }
                     adapter = new CategoryAdapter(getContext(), ctgList);
