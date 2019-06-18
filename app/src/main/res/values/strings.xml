@@ -49,4 +49,6 @@
     <string name="txt_taxable">Taxable?</string>
     <string name="txt_ctg_for_product">Category</string>
     <string name="txt_product_edit_title">Edit Product</string>
+    <string name="txt_ctg_edit_title">Edit Category</string>
+    <string name="btn_edit_category">Edit</string>
 </resources>

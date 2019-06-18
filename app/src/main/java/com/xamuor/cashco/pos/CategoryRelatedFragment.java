@@ -22,6 +22,7 @@ public class CategoryRelatedFragment extends Fragment {
 //    category-id to be inserted into table items into SERVER
     public static int ctgId = 0;
     public static String ctgName;
+    public static String ctgDesc;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class CategoryRelatedFragment extends Fragment {
         imgNewCategory = view.findViewById(R.id.img_add_category);
         imgNewProduct = view.findViewById(R.id.img_add_product);
         imgEditCategory = view.findViewById(R.id.img_edit_category);
-//        By default should be disabled incase touch on any item
+
 
 //        Add new category
         imgNewCategory.setOnClickListener(new View.OnClickListener() {
@@ -48,13 +49,14 @@ public class CategoryRelatedFragment extends Fragment {
                 onNewProduct();
             }
         });
-//      Edit Product
+//      When edit-icon touched
         imgEditCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onChangeProduct();
+                onChangeCategory();
             }
         });
+
 
 //        Loading fragment ListProductFragment
         FragmentManager fragmentManager =  (getActivity()).getSupportFragmentManager();
@@ -68,6 +70,7 @@ public class CategoryRelatedFragment extends Fragment {
     public static void onRefreshCategoryRelated(@Nullable CategoryDataModal modal, @Nullable Context context) {
         ctgId = modal.getCtgId();
         ctgName = modal.getCtgName();
+        ctgDesc = modal.getCtgDesc();
 //                CustomerDetailFragment to show more detail for any customer
         FragmentManager fragmentManager =  ((AppCompatActivity) context).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -93,10 +96,10 @@ public class CategoryRelatedFragment extends Fragment {
     }
 
 //    Change product
-private void onChangeProduct() {
+private void onChangeCategory() {
     FragmentManager fragmentManager =  (getActivity()).getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-    ProductEditFragment myfragment = new ProductEditFragment();  //your fragment
+    CategoryEditFragment myfragment = new CategoryEditFragment();  //your fragment
     fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
     fragmentTransaction.commit();
 }
