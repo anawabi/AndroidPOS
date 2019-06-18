@@ -31,6 +31,8 @@ public class CategoryRelatedFragment extends Fragment {
         imgNewCategory = view.findViewById(R.id.img_add_category);
         imgNewProduct = view.findViewById(R.id.img_add_product);
         imgEditCategory = view.findViewById(R.id.img_edit_category);
+//        By default should be disabled incase touch on any item
+
 //        Add new category
         imgNewCategory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,21 @@ public class CategoryRelatedFragment extends Fragment {
                 onNewProduct();
             }
         });
+//      Edit Product
+        imgEditCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onChangeProduct();
+            }
+        });
+
+//        Loading fragment ListProductFragment
+        FragmentManager fragmentManager =  (getActivity()).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ListProductFragment myfragment = new ListProductFragment();  //your fragment
+        fragmentTransaction.replace(R.id.frg_product_list, myfragment);
+        fragmentTransaction.commit();
+
         return view;
     }
     public static void onRefreshCategoryRelated(@Nullable CategoryDataModal modal, @Nullable Context context) {
@@ -74,4 +91,13 @@ public class CategoryRelatedFragment extends Fragment {
         fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
         fragmentTransaction.commit();
     }
+
+//    Change product
+private void onChangeProduct() {
+    FragmentManager fragmentManager =  (getActivity()).getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    ProductEditFragment myfragment = new ProductEditFragment();  //your fragment
+    fragmentTransaction.replace(R.id.menu_item_frg_cust_detail, myfragment);
+    fragmentTransaction.commit();
+}
 }

@@ -36,8 +36,6 @@ public class CategoryAdapter extends RecyclerView.Adapter <CategoryAdapter.ViewH
         holder.cardCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("ctgId", modal.getCtgId());
                 CategoryRelatedFragment.onRefreshCategoryRelated(modal, context);
             }
         });

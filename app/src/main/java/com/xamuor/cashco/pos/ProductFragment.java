@@ -54,7 +54,7 @@ public class ProductFragment extends Fragment implements SearchView.OnQueryTextL
         View view = inflater.inflate(R.layout.fragment_product, container, false);
         inventoryRv = view.findViewById(R.id.rcv_inventory);
         inventoryRv.setHasFixedSize(true);
-        inventoryRv.setLayoutManager(new GridLayoutManager(getContext(), 4));
+        inventoryRv.setLayoutManager(new GridLayoutManager(getContext(), 5));
 //        Room Database
         posDatabase = Room.databaseBuilder(getContext(), PosDatabase.class, "newpos_db").allowMainThreadQueries().build();
         productList = new ArrayList<>();
