@@ -85,7 +85,8 @@ public class ProductFragment extends Fragment implements SearchView.OnQueryTextL
                         JSONArray jsonArray = new JSONArray(response);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            InventoryDataModal dataModal = new InventoryDataModal(jsonObject.getInt("item_id"), jsonObject.getString("item_image"), jsonObject.getString("item_name"), jsonObject.getDouble("sell_price"));
+                            InventoryDataModal dataModal = new InventoryDataModal(jsonObject.getInt("item_id"), jsonObject.getString("item_image"), jsonObject.getString("item_name"), jsonObject.getDouble("sell_price"),
+                                    jsonObject.getInt("quantity"));
                             productList.add(dataModal);
                         }
                         adapter = new InventoryAdapter(productList, getContext());

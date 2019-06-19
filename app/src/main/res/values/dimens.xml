@@ -12,6 +12,7 @@
     <dimen name="txt_small_size">14sp</dimen>
     <dimen name="card_txt_size">10sp</dimen>
     <dimen name="small_margin">10dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 
 
 </resources>

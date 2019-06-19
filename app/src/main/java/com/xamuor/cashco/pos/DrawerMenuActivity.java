@@ -31,12 +31,14 @@ public class DrawerMenuActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.menu_item_frgs, myfragment);
             fragmentTransaction.commit();
         } else if (MenuID.getMenuId() == 2){
-            android.support.v4.app.FragmentManager fragmentManager = (this.getSupportFragmentManager());
+            Intent intent = new Intent(this, InventoryActivity.class);
+            startActivity(intent);
+           /* android.support.v4.app.FragmentManager fragmentManager = (this.getSupportFragmentManager());
             android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             InventoryFragment myfragment = new InventoryFragment();  //your fragment
             // work here to add, remove, etc
             fragmentTransaction.replace(R.id.menu_item_frgs, myfragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.commit();*/
         }
         else if (MenuID.getMenuId() == 3) {
             android.support.v4.app.FragmentManager fragmentManager = (this.getSupportFragmentManager());

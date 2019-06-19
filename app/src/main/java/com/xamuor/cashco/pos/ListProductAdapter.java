@@ -1,12 +1,15 @@
 package com.xamuor.cashco.pos;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -24,14 +27,18 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductAdapter.
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list_data_modal, parent, false);
+//        view.setOnCreateContextMenuListener(this);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         ListProductDataModal modal = productList.get(position);
         Glide.with(context).load(MyUrl.onLoadImage("product_images/").concat(modal.getProductImage())).into(holder.pImage);
         holder.txtPname.setText(modal.getProductName());
+//        options after long-clicking on cards
+
+
     }
 
     @Override
@@ -39,13 +46,18 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductAdapter.
         return productList.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView pImage;
         private TextView txtPname;
+        private CardView cardListProduct;
         public ViewHolder(View itemView) {
             super(itemView);
             pImage = itemView.findViewById(R.id.img_product_list_image);
             txtPname = itemView.findViewById(R.id.txt_product_list_name);
+            cardListProduct = itemView.findViewById(R.id.card_list_product);
+//            itemView.setOnCreateContextMenuListener((View.OnCreateContextMenuListener) this);
         }
     }
+
 }

@@ -50,6 +50,15 @@
             android:configChanges="orientation"
             android:parentActivityName=".InventoryActivity"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".ReportActivity"
+            android:label="@string/title_activity_report"
+            android:parentActivityName=".InventoryActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.xamuor.cashco.pos.InventoryActivity" />
+        </activity>
     </application>
 
 </manifest>

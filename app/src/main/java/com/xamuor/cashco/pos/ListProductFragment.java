@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -88,5 +92,25 @@ public class ListProductFragment extends Fragment {
             }
         };
         Volley.newRequestQueue(getActivity()).add(request);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater inflater = getActivity().getMenuInflater();
+        inflater.inflate(R.menu.menu_for_products, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case R.id.mnu_edit:
+                Toast.makeText(getActivity(), "Editing product...", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.mnu_delete:
+                Toast.makeText(getActivity(), "Deleting product...", Toast.LENGTH_SHORT).show();
+        }
+        this.adapter.notifyDataSetChanged();
+        return super.onContextItemSelected(item);
     }
 }

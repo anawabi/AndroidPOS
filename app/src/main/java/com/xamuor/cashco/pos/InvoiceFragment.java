@@ -20,6 +20,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -80,9 +81,9 @@ public class InvoiceFragment extends Fragment {
         editTransCode = view.findViewById(R.id.edit_trans_code);
         editRecievable = view.findViewById(R.id.edit_rcvable_amount);
         editRecieved = view.findViewById(R.id.edit_rcv_amount);
-        ImageButton btnNewCustomer = view.findViewById(R.id.btn_new_customer);
+        ImageView imgNewCustomer = view.findViewById(R.id.img_new_customer);
         posDatabase = Room.databaseBuilder(getContext(), PosDatabase.class, "newpos_db").allowMainThreadQueries().build();
-        btnNewCustomer.setOnClickListener(new View.OnClickListener() {
+        imgNewCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 intent = new Intent(getContext(), NewCustomerActivity.class);

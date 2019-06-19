@@ -41,6 +41,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
         final InventoryDataModal modal = productList.get(position);
         holder.txtProduct.setText(modal.getProductName());
         holder.txtPrice.setText("$" + modal.getProductPrice());
+        holder.txtQty.setText(String.valueOf(modal.getProductQty()));
         Glide.with(context).load(MyUrl.onLoadImage("product_images/".concat(modal.getProductImage()))).into(holder.productImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +53,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
                 Product product = new Product();
                 TextView txtProduct = (TextView) view.findViewById(R.id.txt_product);
                 String myProduct = txtProduct.getText().toString();
-                InventoryDataModal productList = new InventoryDataModal(modal.getProductId(), modal.getProductImage(), modal.getProductName(), modal.getProductPrice());
+                InventoryDataModal productList = new InventoryDataModal(modal.getProductId(), modal.getProductImage(), modal.getProductName(), modal.getProductPrice(), modal.getProductQty());
                 InvoiceFragment.posDatabase.myDao().getProducts(MyCompany.getCompanyId());
 
 //               Initiate Product entity
@@ -98,7 +99,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView productImage;
-        TextView txtProduct, txtPrice;
+        TextView txtProduct, txtPrice, txtQty;
 
 
         public ViewHolder(View itemView) {
@@ -108,6 +109,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
             productImage = itemView.findViewById(R.id.img_product);
             txtProduct = itemView.findViewById(R.id.txt_product);
             txtPrice = itemView.findViewById(R.id.txt_price);
+            txtQty = itemView.findViewById(R.id.txt_qty);
 
 
         }

@@ -121,9 +121,10 @@ public class InventoryActivity extends AppCompatActivity
             MenuID.setMenuId(3);
             startActivity(testIntent);
 
-        } else if (id == R.id.nav_sale) {
-
         } else if (id == R.id.nav_report) {
+            MenuID.setMenuId(4);
+            testIntent = new Intent(this, ReportActivity.class);
+            startActivity(testIntent);
 
         } else if (id == R.id.nav_setting) {
 
