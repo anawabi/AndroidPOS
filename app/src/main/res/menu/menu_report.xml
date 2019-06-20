@@ -2,9 +2,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.xamuor.cashco.pos.ReportActivity">
+   <item
+       android:id="@+id/menu_today"
+       android:title="@string/mnu_today_report"
+       app:showAsAction="never"/>
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/menu_yesterday"
+        android:title="@string/mnu_ysd_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_last7d"
+        android:title="@string/mnu_7d_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_30d"
+        android:title="@string/mnu_last30d_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_this_week"
+        android:title="@string/mnu_this_week_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_last_week"
+        android:title="@string/mnu_last_week_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_this_month"
+        android:title="@string/mnu_this_month_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_last_month"
+        android:title="@string/mnu_last_month_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_this_year"
+        android:title="@string/mnu_this_year_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_last_year"
+        android:title="@string/mnu_last_year_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_all_time"
+        android:title="@string/mnu_all_time_report"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_custom_range"
+        android:title="@string/mnu_cust_range_report"
+        app:showAsAction="never"/>
+
 </menu>

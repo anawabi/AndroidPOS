@@ -64,7 +64,7 @@
     <string name="tab_text_1">Daily</string>
     <string name="tab_text_2">Weekly</string>
     <string name="tab_text_3">Monthly</string>
-    <string name="tab_text_4">Annually</string>
+    <string name="tab_text_4">Annuall</string>
     <string name="txt_report_image">Image</string>
     <string name="txt_report_customer">Customer</string>
     <string name="txt_report_invoice">Invoice</string>
@@ -76,4 +76,16 @@
     <string name="txt_report_monthly_total">Last month\'s Total Sales:</string>
     <string name="txt_report_annual_total">Last year\'s Total Sales:</string>
     <string name="icon_print_report">Icon Print Report</string>
+    <string name="mnu_today_report">Today</string>
+    <string name="mnu_ysd_report">Yesterday</string>
+    <string name="mnu_7d_report">Last 7 days</string>
+    <string name="mnu_last30d_report">Last 30 days</string>
+    <string name="mnu_this_week_report">This Week</string>
+    <string name="mnu_last_week_report">Last Week</string>
+    <string name="mnu_this_month_report">This Month</string>
+    <string name="mnu_last_month_report">Last Month</string>
+    <string name="mnu_this_year_report">This Year</string>
+    <string name="mnu_last_year_report">Last Year</string>
+    <string name="mnu_all_time_report">All Time</string>
+    <string name="mnu_cust_range_report">Custom Date Range</string>
 </resources>
