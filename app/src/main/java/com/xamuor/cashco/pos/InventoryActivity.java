@@ -126,8 +126,6 @@ public class InventoryActivity extends AppCompatActivity
             testIntent = new Intent(this, ReportActivity.class);
             startActivity(testIntent);
 
-        } else if (id == R.id.nav_setting) {
-
         } else if ( id == R.id.nav_log_out) {
             AlertDialog.Builder logoutDialog = new AlertDialog.Builder(context);
             logoutDialog.setTitle("Confirm Sign Out");
@@ -142,6 +140,11 @@ public class InventoryActivity extends AppCompatActivity
             });
             logoutDialog.setNegativeButton("Cancel", null);
             logoutDialog.show();
+        } else if (id == R.id.nav_setting) {
+            testIntent = new Intent(this, SettingsActivity.class);
+            startActivity(testIntent);
+
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

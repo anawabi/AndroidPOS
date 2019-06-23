@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                    try {
                        JSONObject jsonObject = new JSONObject(response);
                        MyCompany.setCompanyId(jsonObject.getInt("compId"));
+                       MyCompany.setUserId(jsonObject.getInt("userId"));
                    } catch (JSONException e) {
                        e.printStackTrace();
                    }

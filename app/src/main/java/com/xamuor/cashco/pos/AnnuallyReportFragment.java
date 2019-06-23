@@ -39,9 +39,9 @@ public class AnnuallyReportFragment extends Fragment {
     private ImageView imgPrintReport;
     private RelativeLayout reportLayout;
     private TextView txtTotal;
-    private RecyclerView reportRV;
+   /* private RecyclerView reportRV;
     private List<ReportDataModal> reportList;
-    private ReportAdapter adapter;
+    private ReportAdapter adapter;*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,18 +58,18 @@ public class AnnuallyReportFragment extends Fragment {
                 onPrint();
             }
         });
-        reportRV = view.findViewById(R.id.report_rv);
+       /* reportRV = view.findViewById(R.id.report_rv);
         reportList = new ArrayList<>();
         reportRV.setHasFixedSize(true);
         reportRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 //        Call to load annual detailed report
-        onLoadAnnualDetailedReport("annual");
+        onLoadAnnualDetailedReport("annual"); */
 //        Call to load annual total report
         onLoadAnnualTotal("annualTotal");
     return view;
     }
     // Load monthly-report data
-    private void onLoadAnnualDetailedReport(String url) {
+    /*private void onLoadAnnualDetailedReport(String url) {
         StringRequest request = new StringRequest(Request.Method.POST, MyUrl.setUrl(url), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -110,7 +110,7 @@ public class AnnuallyReportFragment extends Fragment {
             }
         };
         Volley.newRequestQueue(getActivity()).add(request);
-    }
+    }*/
 
     //    load monthly-total-sales
     private void onLoadAnnualTotal(String url) {

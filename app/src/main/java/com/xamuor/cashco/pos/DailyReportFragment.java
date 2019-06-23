@@ -39,9 +39,9 @@ public class DailyReportFragment extends Fragment {
     private TextView txtDailyTotal;
     private ImageView imgPrintReport;
     private RelativeLayout reportLayout;
-    private RecyclerView reportRV;
+   /* private RecyclerView reportRV;
     private List<ReportDataModal> reportList;
-    private ReportAdapter adapter;
+    private ReportAdapter adapter;*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,19 +57,19 @@ public class DailyReportFragment extends Fragment {
                 onPrint();
             }
         });
-        reportRV = view.findViewById(R.id.report_rv);
+        /*reportRV = view.findViewById(R.id.report_rv);
         reportList = new ArrayList<>();
         reportRV.setHasFixedSize(true);
         reportRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 //        Call to load daily-report
-        onLoadDailyDetailedReport("daily");
+        onLoadDailyDetailedReport("daily"); */
 //        Call to load daily-total
         onLoadDailyTotal("dailyTotal");
         return view;
     }
 
 // Load daily-report data
-    public void onLoadDailyDetailedReport(String url) {
+    /*public void onLoadDailyDetailedReport(String url) {
         StringRequest request = new StringRequest(Request.Method.POST, MyUrl.setUrl(url), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -110,7 +110,7 @@ public class DailyReportFragment extends Fragment {
             }
         };
         Volley.newRequestQueue(getActivity()).add(request);
-    }
+    } */
 //    load daily-total-sales
     public void onLoadDailyTotal(String url) {
         StringRequest request = new StringRequest(Request.Method.POST, MyUrl.setUrl(url), new Response.Listener<String>() {

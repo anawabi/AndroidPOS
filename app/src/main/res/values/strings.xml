@@ -20,6 +20,12 @@
         <item>Debit Card</item>
     </string-array>
 
+    <!--User Roles-->
+    <string-array name="user_roles">
+        <item>Stock Manager</item>
+        <item>Cashier</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="edit_cust_tile">Edit Customer</string>
@@ -88,4 +94,16 @@
     <string name="mnu_last_year_report">Last Year</string>
     <string name="mnu_all_time_report">All Time</string>
     <string name="mnu_cust_range_report">Custom Date Range</string>
+    <string name="txt_report_recieved">Recieved</string>
+    <string name="txt_report_recievable">Recievable</string>
+    <string name="btn_new_user">New User</string>
+    <string name="txt_new_user_header">Add New User</string>
+    <string name="users">Users</string>
+    <string name="edit_user_fname">First Name</string>
+    <string name="edit_user_lname">Last Name</string>
+    <string name="edit_user_phone">Phone</string>
+    <string name="edit_user_email">Email (optional)</string>
+    <string name="edit_user_psd">Password</string>
+    <string name="edit_user_pass_confirm">Retype Password</string>
+    <string name="btn_add_user">Add User</string>
 </resources>

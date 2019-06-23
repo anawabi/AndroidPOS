@@ -39,9 +39,9 @@ public class WeeklyReportFragment extends Fragment {
     private ImageView imgPrintReport;
     private RelativeLayout reportLayout;
     private TextView txtTotal;
-    private RecyclerView reportRV;
+   /* private RecyclerView reportRV;
     private List<ReportDataModal> reportList;
-    private ReportAdapter adapter;
+    private ReportAdapter adapter;*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,16 +57,16 @@ public class WeeklyReportFragment extends Fragment {
                 onPrint();
             }
         });
-        reportRV = view.findViewById(R.id.report_rv);
+        /*reportRV = view.findViewById(R.id.report_rv);
         reportList = new ArrayList<>();
         reportRV.setHasFixedSize(true);
         reportRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        onLoadWeeklyDetailedReport("weekly");
+        onLoadWeeklyDetailedReport("weekly"); */
         onLoadWeeklyTotal("weeklyTotal");
         return view;
     }
     // Load daily-report data
-    public void onLoadWeeklyDetailedReport(String url) {
+    /*public void onLoadWeeklyDetailedReport(String url) {
         StringRequest request = new StringRequest(Request.Method.POST, MyUrl.setUrl(url), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -107,7 +107,7 @@ public class WeeklyReportFragment extends Fragment {
             }
         };
         Volley.newRequestQueue(getActivity()).add(request);
-    }
+    }*/
 
     //    load daily-total-sales
     public void onLoadWeeklyTotal(String url) {
