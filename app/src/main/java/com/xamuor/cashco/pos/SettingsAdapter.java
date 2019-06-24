@@ -2,6 +2,7 @@ package com.xamuor.cashco.pos;
 
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
@@ -27,6 +28,8 @@ import java.util.Map;
 public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHoler> {
     private List<SettingsDataModal> userList;
     private Context context;
+    public static int userId;
+    public static String userRole;
 
     public SettingsAdapter(List<SettingsDataModal> userList, Context context) {
         this.userList = userList;
@@ -63,7 +66,15 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHo
                 }
             }
         });
-
+    holder.cardSettings.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            userId = modal.getUserId();
+            userRole = modal.getRole();
+            UserRoleBottomSheet dialog = new UserRoleBottomSheet();
+            dialog.show(((SettingsActivity) context).getSupportFragmentManager(), "Set Role");
+        }
+    });
     }
 
     @Override
@@ -75,6 +86,7 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHo
         private ImageView userPhoto;
         private TextView txtFname, txtLname, txtPhone, txtRole;
         private SwitchCompat switchStatus;
+        private CardView cardSettings;
         public ViewHoler(View itemView) {
             super(itemView);
 //            Initiate above widgets
@@ -84,6 +96,7 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHo
 //            txtPhone = itemView.findViewById(R.id.txt_user_phone);
             txtRole = itemView.findViewById(R.id.txt_user_role);
             switchStatus = itemView.findViewById(R.id.switch_user_status);
+            cardSettings = itemView.findViewById(R.id.card_settings);
         }
     }
 

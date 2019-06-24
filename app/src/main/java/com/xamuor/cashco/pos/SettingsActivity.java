@@ -49,7 +49,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
         onRefresh();
     }
-    public void onRefresh() {
+    private void onRefresh() {
         android.support.v4.app.FragmentManager fragmentManager = (SettingsActivity.this.getSupportFragmentManager());
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         SettingsFragment myfragment = new SettingsFragment();  //your fragment

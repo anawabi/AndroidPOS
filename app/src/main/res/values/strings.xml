@@ -106,4 +106,9 @@
     <string name="edit_user_psd">Password</string>
     <string name="edit_user_pass_confirm">Retype Password</string>
     <string name="btn_add_user">Add User</string>
+    <string name="txt_role_header">Set User Role</string>
+    <string name="rdb_admin">System Admin</string>
+    <string name="rdb_stock_manager">Stock Manager</string>
+    <string name="rdb_cashier">Cashier</string>
+    <string name="btn_user_set_role">Set Role</string>
 </resources>
