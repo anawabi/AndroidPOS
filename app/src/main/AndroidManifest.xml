@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xamuor.cashco.pos">
+    package="com.xamuor.cashco.cashco">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -32,7 +32,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xamuor.cashco.pos.LoginActivity" />
+                android:value="com.xamuor.cashco.cashco.LoginActivity" />
         </activity>
         <activity
             android:name=".NewCustomerActivity"
@@ -43,7 +43,7 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xamuor.cashco.pos.InventoryActivity" />
+                android:value="com.xamuor.cashco.cashco.InventoryActivity" />
         </activity>
         <activity
             android:name=".DrawerMenuActivity"
@@ -51,17 +51,11 @@
             android:parentActivityName=".InventoryActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ReportActivity"
-            android:label="@string/title_activity_report"
-            android:parentActivityName=".InventoryActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xamuor.cashco.pos.InventoryActivity" />
-        </activity>
-        <activity android:name=".SettingsActivity"
-            android:parentActivityName=".InventoryActivity"
-            android:label="@string/users"/>
+            android:name=".SettingsActivity"
+            android:label="@string/users"
+            android:parentActivityName=".InventoryActivity" />
+        <activity android:name=".ReportActivity"
+            android:parentActivityName=".InventoryActivity"/>
     </application>
 
 </manifest>

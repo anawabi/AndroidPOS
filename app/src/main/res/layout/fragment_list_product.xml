@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.xamuor.cashco.pos.ListProductFragment">
+    tools:context="com.xamuor.cashco.cashco.ListProductFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/product_rv"

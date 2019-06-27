@@ -5,7 +5,7 @@
     android:padding="@dimen/padding"
     android:layout_margin="@dimen/margin"
     android:orientation="vertical"
-    tools:context="com.xamuor.cashco.pos.ProductEditFragment">
+    tools:context="com.xamuor.cashco.cashco.ProductEditFragment">
     <TextView
         android:id="@+id/txt_product_edit_title"
         android:layout_width="match_parent"

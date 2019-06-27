@@ -17,7 +17,7 @@
     <string-array name="payment_type">
         <item>Cash</item>
         <item>Master Card</item>
-        <item>Debit Card</item>
+        <item>master Card</item>
     </string-array>
 
     <!--User Roles-->
@@ -66,22 +66,10 @@
     <string name="menu_setting">Settings</string>
     <string name="icon_new_customer">Icon of new customer</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_report">Sales Reports</string>
     <string name="tab_text_1">Daily</string>
     <string name="tab_text_2">Weekly</string>
     <string name="tab_text_3">Monthly</string>
     <string name="tab_text_4">Annuall</string>
-    <string name="txt_report_image">Image</string>
-    <string name="txt_report_customer">Customer</string>
-    <string name="txt_report_invoice">Invoice</string>
-    <string name="txt_report_qty">Qty</string>
-    <string name="txt_report_payment">Payment</string>
-    <string name="txt_report_date">Date</string>
-    <string name="txt_report_daily_total">Today\'s Total Sales:</string>
-    <string name="txt_report_weekly_total">Last week\'s Total Sales:</string>
-    <string name="txt_report_monthly_total">Last month\'s Total Sales:</string>
-    <string name="txt_report_annual_total">Last year\'s Total Sales:</string>
-    <string name="icon_print_report">Icon Print Report</string>
     <string name="mnu_today_report">Today</string>
     <string name="mnu_ysd_report">Yesterday</string>
     <string name="mnu_7d_report">Last 7 days</string>
@@ -94,8 +82,6 @@
     <string name="mnu_last_year_report">Last Year</string>
     <string name="mnu_all_time_report">All Time</string>
     <string name="mnu_cust_range_report">Custom Date Range</string>
-    <string name="txt_report_recieved">Recieved</string>
-    <string name="txt_report_recievable">Recievable</string>
     <string name="btn_new_user">New User</string>
     <string name="txt_new_user_header">Add New User</string>
     <string name="users">Users</string>
@@ -111,4 +97,13 @@
     <string name="rdb_stock_manager">Stock Manager</string>
     <string name="rdb_cashier">Cashier</string>
     <string name="btn_user_set_role">Set Role</string>
+    <string name="txt_total_sales_lbl">Total Sales:</string>
+    <string name="txt_payment_lbl">Payment:</string>
+    <string name="txt_recieved_lbl">Recieved Amount:</string>
+    <string name="txt_recievable_lbl">Recievable Amount:</string>
+    <string name="txt_cash_lble">Cash</string>
+    <string name="txt_master_lbl">Master Card</string>
+    <string name="txt_debit_lbl">Debit Card</string>
+    <string name="print_icon_desc">Print icon</string>
+    <string name="txt_usd_currency">$</string>
 </resources>

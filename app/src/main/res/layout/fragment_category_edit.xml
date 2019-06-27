@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="@dimen/padding"
-    tools:context="com.xamuor.cashco.pos.CategoryEditFragment">
+    tools:context="com.xamuor.cashco.cashco.CategoryEditFragment">
     <TextView
         android:id="@+id/txt_ctg_edit_title"
         android:layout_width="match_parent"
