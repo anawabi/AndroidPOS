@@ -89,13 +89,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_for_payment"
+            android:background="@color/colorPrimary"
+            android:layout_margin="@dimen/margin"
             android:src="@drawable/ic_print"/>
         <Button
             android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
             android:layout_toEndOf="@+id/btn_print"
+            android:background="@color/colorPrimary"
+            style="?android:attr/buttonStyleSmall"
             android:text="Cancel"
-            android:layout_alignBottom="@+id/btn_print"/>
+            android:textColor="@color/white_color"
+            android:layout_alignTop="@+id/btn_print"/>
     </RelativeLayout>
 

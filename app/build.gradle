@@ -42,4 +42,6 @@ dependencies {
 //    Room component
     implementation "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+//    Stetho ( debug bridge library)
+    implementation 'me.dlkanth:stetho-volley:1.0'
 }

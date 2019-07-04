@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CashCo</string>
-    <string name="title_activity_inventory">POS Inventory</string>
+    <string name="title_activity_inventory">CashCo Inventory</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -17,7 +17,7 @@
     <string-array name="payment_type">
         <item>Cash</item>
         <item>Master Card</item>
-        <item>master Card</item>
+        <item>Debit Card</item>
     </string-array>
 
     <!--User Roles-->
@@ -35,6 +35,7 @@
     <string name="txt_payment">Pnt. Type</string>
     <string name="txt_customer">Customer</string>
     <string name="txt_recieved">Recieved</string>
+    <string name="spn_choose_customer">Choose / Add add a customer</string>
     <string name="txt_recievable">Recievable</string>
     <string name="txt_balance_date">Date</string>
     <string name="title_activity_text_drawer">TextDrawerActivity</string>
@@ -106,4 +107,5 @@
     <string name="txt_debit_lbl">Debit Card</string>
     <string name="print_icon_desc">Print icon</string>
     <string name="txt_usd_currency">$</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>
