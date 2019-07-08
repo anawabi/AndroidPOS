@@ -1,72 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<!DOCTYPE ScrollView [<!ELEMENT ScrollView (LinearLayout)*><!ATTLIST ScrollViewandroid:layout_width CDATA #REQUIREDandroid:layout_height CDATA #REQUIREDxmlns:android CDATA #REQUIRED><!ELEMENT LinearLayout (EditText|android.support.design.widget.TextInputEditText|Button)*><!ATTLIST LinearLayoutandroid:layout_width CDATA #REQUIREDandroid:layout_height CDATA #REQUIREDandroid:padding CDATA #REQUIREDandroid:layout_gravity CDATA #REQUIREDandroid:gravity CDATA #REQUIREDandroid:orientation CDATA #REQUIREDxmlns:android CDATA #REQUIRED><!ELEMENT EditText (#PCDATA)><!ATTLIST EditTextandroid:layout_width CDATA #REQUIREDandroid:layout_height CDATA #REQUIREDandroid:hint CDATA #REQUIRED><!ELEMENT android.support.design.widget.TextInputEditText (#PCDATA)><!ATTLIST android.support.design.widget.TextInputEditTextandroid:hint CDATA #REQUIREDandroid:id CDATA #REQUIREDandroid:inputType CDATA #REQUIREDandroid:layout_height CDATA #REQUIREDandroid:layout_marginTop CDATA #REQUIREDandroid:layout_width CDATA #REQUIREDandroid:singleLine CDATA #REQUIRED><!ELEMENT Button (#PCDATA)><!ATTLIST Buttonandroid:id CDATA #REQUIREDandroid:layout_width CDATA #REQUIREDandroid:layout_height CDATA #REQUIREDandroid:layout_marginTop CDATA #REQUIREDandroid:background CDATA #REQUIREDandroid:textColor CDATA #REQUIREDandroid:text CDATA #REQUIRED>]>-->
+
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/nav_header_vertical_spacing"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:background="@color/white_color"
         xmlns:android="http://schemas.android.com/apk/res/android">
-        <android.support.design.widget.TextInputEditText
+        <EditText
             android:id="@+id/edit_cust_name"
             android:inputType="text"
             android:singleLine="true"
-            android:hint="Customer First Name"
+            android:hint="First Name"
             android:layout_marginTop="20dp"
             android:layout_width="600dp"
-            android:layout_height="wrap_content" />
-        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/edit_cust_lastname"
             android:inputType="text"
             android:singleLine="true"
             android:layout_marginTop="20dp"
-            android:hint="Customer Last Name"
-            android:layout_width="600dp"
-            android:layout_height="wrap_content" />
-        <android.support.design.widget.TextInputEditText
+            android:hint="Last Name"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/edit_cust_phone"
             android:inputType="phone"
             android:singleLine="true"
             android:hint="Customer Phone"
-            android:layout_marginTop="20dp"
-            android:layout_width="600dp"
-            android:layout_height="wrap_content" />
-        <android.support.design.widget.TextInputEditText
+            android:layout_marginTop="20dp"/>
+        <EditText
             android:id="@+id/edit_cust_email"
             android:inputType="textAutoComplete"
             android:layout_marginTop="20dp"
             android:singleLine="true"
             android:hint="Customer Email"
-            android:layout_width="600dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <android.support.design.widget.TextInputEditText
+        <EditText
             android:id="@+id/edit_cust_state"
             android:inputType="textAutoComplete"
             android:singleLine="true"
             android:layout_marginTop="20dp"
             android:hint="Customer State/Province"
-            android:layout_width="600dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <android.support.design.widget.TextInputEditText
+        <EditText
             android:id="@+id/edit_cust_address"
             android:inputType="textAutoComplete"
             android:singleLine="true"
             android:hint="Customer Address"
             android:layout_marginTop="20dp"
-            android:layout_width="600dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btn_register_customer"
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_margin="30dp"
+            android:padding="30dp"
             android:background="@color/colorPrimary"
             android:textColor="#ffff"
-            android:text="Register"/>
+            android:text="@string/Add_btn"/>
     </LinearLayout>
 </ScrollView>
