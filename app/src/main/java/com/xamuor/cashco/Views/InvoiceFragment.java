@@ -35,15 +35,15 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.xamuor.cashco.Adapters.InventoryAdapter;
 import com.xamuor.cashco.Adapters.InvoiceAdapter;
-import com.xamuor.cashco.Model.InvoiceDataModal;
 import com.xamuor.cashco.Customer;
 import com.xamuor.cashco.CustomerIDForInvoice;
+import com.xamuor.cashco.Model.InvoiceDataModal;
 import com.xamuor.cashco.NewCustomerActivity;
-import com.xamuor.cashco.Utilities.PosDatabase;
 import com.xamuor.cashco.Product;
-import com.xamuor.cashco.cashco.R;
-import com.xamuor.cashco.Utilities.Routes;
 import com.xamuor.cashco.Users;
+import com.xamuor.cashco.Utilities.PosDatabase;
+import com.xamuor.cashco.Utilities.Routes;
+import com.xamuor.cashco.cashco.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -194,7 +194,9 @@ public class InvoiceFragment extends Fragment {
 //                     Existing customers into ROOM database
                      List<Customer> existingCustomer = InvoiceFragment.posDatabase.myDao().getCustomers(Users.getCompanyId());
 //                      First Delete previous customers
-                        customerList.add(getResources().getString(R.string.spn_choose_customer));
+                        if (getActivity() != null) {
+                            customerList.add(getResources().getString(R.string.spn_choose_customer));
+                        }
                         for (int c = 0; c < customers.length(); c++) {
                             JSONObject custObject = customers.getJSONObject(c);
                             int custID = custObject.getInt("cust_id");
@@ -211,10 +213,11 @@ public class InvoiceFragment extends Fragment {
                          String rCustName = cust.getCustomerName();
                              customerList.add(rCustName);
                      }
-                        ArrayAdapter<String> customerAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, customerList);
-                        spnCustomers.setAdapter(customerAdapter);
-                        customerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
+                     if (getActivity() != null) {
+                         ArrayAdapter<String> customerAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, customerList);
+                         spnCustomers.setAdapter(customerAdapter);
+                         customerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                     }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -323,7 +326,7 @@ public class InvoiceFragment extends Fragment {
                 public void onResponse(String response) {
 
                     if (response.trim().contains("success!")) {
-                        Toast.makeText(getContext(), "Sale was successful!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Sale was successful!", Toast.LENGTH_SHORT).show();
                         //                    The contents of invoice should be deleted
                         InvoiceFragment.posDatabase.myDao().delete();
 //                      print the invoice

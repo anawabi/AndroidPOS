@@ -19,10 +19,12 @@
     android:orientation="vertical"
     android:gravity="center">
 <ImageView
+    android:id="@+id/img_logo"
     android:layout_width="120dp"
     android:layout_height="50dp"
     android:src="@drawable/cashco_logo"
-    android:layout_margin="20dp"/>
+    android:layout_margin="20dp"
+    android:contentDescription="@string/logo" />
 
     <EditText
         android:id="@+id/edit_username"

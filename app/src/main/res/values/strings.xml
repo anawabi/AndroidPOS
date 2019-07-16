@@ -109,4 +109,6 @@
     <string name="txt_usd_currency">$</string>
     <string name="btn_cancel">Cancel</string>
     <string name="Add_btn">Add</string>
+    <string name="logo">Logo</string>
+    <string name="print_invoice">Print Invoice</string>
 </resources>

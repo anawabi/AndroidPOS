@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     Intent loginIntent;
     EditText editUserName, editPassword;
     Context context = LoginActivity.this;
+    ImageView imgLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         editUserName = findViewById(R.id.edit_username);
         editPassword = findViewById(R.id.edit_password);
         btnLogin = findViewById(R.id.btn_login);
+        imgLogo = findViewById(R.id.img_logo);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

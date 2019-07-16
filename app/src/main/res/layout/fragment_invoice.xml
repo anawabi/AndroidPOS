@@ -2,7 +2,7 @@
 <RelativeLayout android:layout_width="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="@dimen/nav_header_vertical_spacing"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white_color"
     tools:context="com.xamuor.cashco.Views.InvoiceFragment"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -28,7 +28,7 @@
             android:layout_width="550dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/spn_select_customer"/>
-    <!-- Total Price-->
+        <!-- Total Price-->
         <TextView
             android:id="@+id/txt_total_price"
             android:layout_below="@+id/list_invoice_content"
@@ -40,10 +40,14 @@
             android:layout_height="wrap_content"
             android:text="Total Price"/>
         <!-- Select Payment-type -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_alignParentBottom="true">
         <Spinner
             android:id="@+id/spn_payment_type"
             android:layout_width="120dp"
-            android:layout_below="@+id/txt_total_price"
             android:layout_marginTop="50dp"
             android:entries="@array/payment_type"
             android:layout_marginBottom="10dp"
@@ -68,6 +72,7 @@
                 android:layout_width="100dp"
                 android:singleLine="true"
                 android:hint="Trans Code"
+                android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
             <EditText
@@ -75,6 +80,7 @@
                 android:layout_width="100dp"
                 android:singleLine="true"
                 android:hint="Recievable"
+                android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"/>
             <EditText
@@ -83,16 +89,18 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:hint="Recieved"
+                android:textSize="12sp"
                 android:inputType="numberDecimal"/>
         </LinearLayout>
         <ImageButton
             android:id="@+id/btn_print"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout_for_payment"
             android:background="@color/colorPrimary"
             android:layout_margin="@dimen/margin"
-            android:src="@drawable/ic_print"/>
+            android:layout_below="@+id/layout_for_payment"
+            android:src="@drawable/ic_print"
+            android:contentDescription="@string/print_invoice" />
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="60dp"
@@ -104,4 +112,10 @@
             android:textColor="@color/white_color"
             android:layout_alignTop="@+id/btn_print"/>
     </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
 

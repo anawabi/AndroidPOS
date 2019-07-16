@@ -3,7 +3,7 @@
     android:id="@+id/test"
     android:orientation="horizontal"
     android:padding="@dimen/nav_header_vertical_spacing"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <TextView
@@ -11,23 +11,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:textSize="12sp"
         android:text="0"/>
     <TextView
         android:id="@+id/txt_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:textSize="12sp"
         android:text="Item"/>
     <TextView
         android:id="@+id/txt_item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:textSize="12sp"
         android:text="Price"/>
     <TextView
         android:id="@+id/txt_item_subtotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:textSize="12sp"
         android:text="Subtotal"/>
 </LinearLayout>
